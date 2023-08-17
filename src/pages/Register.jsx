@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Login from "./Login";
 import {Routes, Route, useNavigate} from 'react-router-dom'
 import Home from "./Home";
-
+import axios from 'axios'
 
 
 function Register(props){
@@ -23,16 +23,22 @@ const navigatologin = () => {
 const handleOnSubmit = async (e) => {
    e.preventDefault();
     if(invitationCode === "abc@123"){
+
+     let result =  axios({ 
+      method: 'post', 
+      url: 'https://cryptox-nine.vercel.app/wallet', 
+      data: { firstname: firstname, lastname: lastname,email: email , password: password , funds: funds } 
+      })
   
-    let result = await fetch(
-    'https://cryptox-nine.vercel.app/register', {
+    // let result = await fetch(
+    // 'https://cryptox-nine.vercel.app/register', {
     
-        method: "post",
-        body: JSON.stringify({firstname, lastname, email, password ,funds}),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+    //     method: "post",
+    //     body: JSON.stringify({firstname, lastname, email, password ,funds}),
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     }
+    // })
  
     result = await result.json();
     console.log(result);
