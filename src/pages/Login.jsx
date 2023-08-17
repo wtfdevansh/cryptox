@@ -13,6 +13,7 @@ function Login(props){
         e.preventDefault();
         let result = await fetch(
         'https://cryptox-nine.vercel.app/login', {
+            mode: "no-cors",
             method: "post",
             body: JSON.stringify({email, password}),
             headers: {
