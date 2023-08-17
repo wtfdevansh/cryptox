@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.json());
 app.use(cors(
     {
-        origin: [""],
+        origin: ["https://cryptox-wijr.vercel.app/"],
         methods: ["POST","GET"],
         credentials: true
     }
