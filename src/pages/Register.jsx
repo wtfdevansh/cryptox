@@ -23,8 +23,7 @@ const navigatologin = () => {
 const handleOnSubmit = async (e) => {
    
     if(invitationCode === "abc@123"){
-   
-    e.preventDefault();
+  
     let result = await fetch(
     'https://cryptox-nine.vercel.app/register', {
         method: "post",
