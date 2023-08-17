@@ -27,7 +27,9 @@ const handleOnSubmit = async (e) => {
      let result =  axios({ 
       method: 'post', 
       url: 'https://cryptox-nine.vercel.app/wallet', 
-      data: { firstname: firstname, lastname: lastname,email: email , password: password , funds: funds } 
+      data: { firstname: firstname, lastname: lastname,email: email , password: password , funds: funds },
+       'Access-Control-Allow-Origin' : '*',
+       'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS'
       })
   
     // let result = await fetch(
