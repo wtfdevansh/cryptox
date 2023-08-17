@@ -21,7 +21,7 @@ const navigatologin = () => {
 
 
 const handleOnSubmit = async (e) => {
-   
+   e.preventDefault;
     if(invitationCode === "abc@123"){
   
     let result = await fetch(
