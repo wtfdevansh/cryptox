@@ -22,7 +22,7 @@ import Image from "../Image";
     useEffect(() => {
         
         const interval = setInterval(() => {
-          fetch("http://localhost:5000/crypto")
+          fetch("https://cryptox-nine.vercel.app/crypto")
           .then((res) => res.json())
           .then((array) => {
               console.log(array);

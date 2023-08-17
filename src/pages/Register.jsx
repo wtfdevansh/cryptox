@@ -26,7 +26,7 @@ const handleOnSubmit = async (e) => {
    
     e.preventDefault();
     let result = await fetch(
-    'http://localhost:5000/register', {
+    'https://cryptox-nine.vercel.app/register', {
         method: "post",
         body: JSON.stringify({firstname, lastname, email, password ,funds}),
         headers: {

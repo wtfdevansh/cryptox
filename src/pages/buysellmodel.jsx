@@ -71,7 +71,7 @@ if(amount === '' && Time < 100 ){
    setPurchase(true)
     axios({ 
       method: 'post', 
-      url: 'http://localhost:5000/trade', 
+      url: 'https://cryptox-nine.vercel.app/trade', 
       data: { email: emails, item: name, direction: action, buyprice: buyat,money:amount,time: Time  } 
       }).then(response => {
          
@@ -97,7 +97,7 @@ if(amount === '' && Time < 100 ){
    
     axios({ 
       method: 'post', 
-      url: 'http://localhost:5000/wallet', 
+      url: 'https://cryptox-nine.vercel.app/wallet', 
       data: { email: emails } 
       }).then(response => {
          const funds = response.data

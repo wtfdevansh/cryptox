@@ -12,7 +12,7 @@ function Change(props){
 
       axios({ 
         method: 'post', 
-        url: 'http://localhost:5000/change', 
+        url: 'https://cryptox-nine.vercel.app/change', 
         data: { email: emails,password: newpass} 
         }).then(response => {
            
