@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require('mongoose');
-const cors = require("cors");
+
 
 const DB = 'mongodb+srv://nathaditya446:RLsmWbntiW87SRfq@cluster0.zmwcs6m.mongodb.net/crypto?retryWrites=true&w=majority'
 
@@ -10,7 +10,7 @@ mongoose.connect(DB);
 
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.json());
-app.use(cors());
+
 app.use(express.static(__dirname + '/public/'))
 
 
