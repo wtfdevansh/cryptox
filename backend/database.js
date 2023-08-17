@@ -10,13 +10,11 @@ mongoose.connect(DB);
 
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.json());
-app.use(cors(
-    {
-        origin: ["https://cryptox-wijr.vercel.app/"],
-        methods: ["POST","GET"],
-        credentials: true
-    }
-    ));
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(express.static(__dirname + '/public/'))
 
 
