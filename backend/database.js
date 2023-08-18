@@ -13,7 +13,8 @@ app.use(express.json());
 app.use(
   cors({
   "origin": "*",
-  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  methods: ["GET","HEAD","PUT","PATCH","POST","DELETE"],
+    credentials: true
   })
 );
 app.use(express.static(__dirname + '/public/'))
