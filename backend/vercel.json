@@ -10,9 +10,7 @@
         {
             "src": "/(.*)",
             "dest": "database.js"
-             "methods": ["GET", "POST", "PUT", "DELETE", "PATCH"],
-            "headers": {
-           "Access-Control-Allow-Origin": "*"
+        
           }
         }
     ]
