@@ -13,6 +13,7 @@ const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [funds, setFunds] = useState(0);
 const navigate = useNavigate();
+const [result,setresult] = useState("")
 
 const navigatologin = () => {
 
@@ -26,7 +27,8 @@ const handleOnSubmit = async (e) => {
      
      
     axios.post("https://cryptox-nine.vercel.app/Register", {firstname, lastname, email, password ,funds})
-    .then(res=>const result = res)
+    .then(res=>{const result = res
+               setresult[result]})
   
   
     // let result = await fetch(
