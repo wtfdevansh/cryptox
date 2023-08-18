@@ -36,8 +36,9 @@ const handleOnSubmit = async (e) => {
         body: JSON.stringify({firstname, lastname, email, password ,funds}),
         headers: {
             'Content-Type': 'application/json',
-            Access-Control-Allow-Origin: *
-        }
+            
+        },
+      credentials: "include"
     })
  
     
