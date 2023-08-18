@@ -49,22 +49,24 @@ User.createIndexes();
 
 app.post("/register", async (req, resp) => {
    
-    console.log(req.body) 
-    const {fistname,lastname,email,password,funds} = req.body;
-    User.findOne({email:email},(err,user)=>{
-        if(user){
-            res.send({message:"user already exist"})
-        }else {
-            const user = new User({firstname,lastname,email,password,funds})
-            user.save(err=>{
-                if(err){
-                    res.send(err)
-                }else{
-                    res.send({message:"sucessfull"})
-                }
-            })
+      try {
+      console.log(req.body)
+       const user = new User(req.body);
+       let result =  await user.save();
+
+  
+        result = result.toObject();
+    
+        if (result) {
+            resp.send(req.body);
+            console.log(result);
+        } else {
+            console.log("User already register");
         }
-    })
+ 
+    } catch (e) {
+        resp.send("Something Went Wrong");
+    }
 });
 
 app.post("/login", async (req, resp) => {
