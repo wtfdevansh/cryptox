@@ -27,7 +27,7 @@ const handleOnSubmit = async (e) => {
      
      
     axios.post("https://cryptox-nine.vercel.app/Register", {firstname, lastname, email, password ,funds}).then(res=>{
-               setresult[res]
+               
                });
   
   
