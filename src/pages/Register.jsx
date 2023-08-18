@@ -26,20 +26,18 @@ const handleOnSubmit = async (e) => {
     if(invitationCode === "abc@123"){
      
      
-    axios.post("https://cryptox-nine.vercel.app/register", {firstname, lastname, email, password ,funds}).then(res=>{
-               
-               });
+ 
   
   
-    // let result = await fetch(
-    // 'https://cryptox-nine.vercel.app/register', {
+    let result = await fetch(
+    'https://cryptox-nine.vercel.app/register', {
     
-    //     method: "post",
-    //     body: JSON.stringify({firstname, lastname, email, password ,funds}),
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     }
-    // })
+        method: "post",
+        body: JSON.stringify({firstname, lastname, email, password ,funds}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
  
     
 
