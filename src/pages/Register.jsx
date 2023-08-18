@@ -23,14 +23,11 @@ const navigatologin = () => {
 const handleOnSubmit = async (e) => {
    e.preventDefault();
     if(invitationCode === "abc@123"){
-
-     let result =  axios({ 
-      method: 'post', 
-      url: 'https://cryptox-nine.vercel.app/wallet', 
-      data: { firstname: firstname, lastname: lastname,email: email , password: password , funds: funds },
-       'Access-Control-Allow-Origin' : '*',
-       'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS'
-      })
+     
+     
+    axios.post("https://cryptox-nine.vercel.app/Register", {firstname, lastname, email, password ,funds})
+    .then(res=>const result = res)
+  
   
     // let result = await fetch(
     // 'https://cryptox-nine.vercel.app/register', {
@@ -42,8 +39,7 @@ const handleOnSubmit = async (e) => {
     //     }
     // })
  
-    result = await result.json();
-    console.log(result);
+    
 
     if (result) {
         alert("Data saved succesfully");
