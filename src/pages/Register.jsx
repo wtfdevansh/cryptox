@@ -26,8 +26,7 @@ const handleOnSubmit = async (e) => {
     if(invitationCode === "abc@123"){
      
      
-    axios.post("https://cryptox-nine.vercel.app/Register", {firstname, lastname, email, password ,funds})
-    .then(res=>{
+    axios.post("https://cryptox-nine.vercel.app/Register", {firstname, lastname, email, password ,funds}).then(res=>{
                setresult[res]
                });
   
