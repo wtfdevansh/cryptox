@@ -12,7 +12,9 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://cryptox-wijr.vercel.app"
+    origin: "*",
+    allowMethods: "*",
+    allowHeaders: "*",
   })
 );
 app.use(express.static(__dirname + '/public/'))
