@@ -12,9 +12,8 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.json());
 app.use(
   cors({
-    origin: "*",
-    allowMethods: "*",
-    allowHeaders: "*",
+  "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
 );
 app.use(express.static(__dirname + '/public/'))
