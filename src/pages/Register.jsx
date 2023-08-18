@@ -50,6 +50,8 @@ const handleOnSubmit = async (e) => {
         setPassword("");
         props.sendEmail(email)
         navigate('/home');
+    }else{
+      alert("something went wrong")
     }
 }else{
     alert("invalid invitation code");
