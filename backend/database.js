@@ -11,7 +11,7 @@ mongoose.connect(DB);
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.json());
 app.use(cors({ 
-  origin: 'http://localhost:3001' 
+  origin: 'https://cryptox-frontend.vercel.app/' 
 }));
 
 app.use((req, res, next) => {
@@ -23,12 +23,7 @@ app.use((req, res, next) => {
 
 app.use(express.static(__dirname + '/public/'))
 
-app.options("/register", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.sendStatus(204);
-});
+
 
 
 const Credentialschema = new mongoose.Schema({
