@@ -79,7 +79,7 @@ app.post("/register", async (req, res) => {
         });
         await newUser.save();
 
-        res.status(200).json({ message: 'User registered successfully' }); 
+        res.sendStatus(200).json({ message: 'User registered successfully' }); 
 
 
  }catch(e){
