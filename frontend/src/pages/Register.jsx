@@ -41,12 +41,12 @@ const handleOnSubmit = async (e) => {
         console.log('User registered successfully!'); 
         // Redirect or navigate to another page
     } else {
-        setErrorMessage(response.data.message); 
+        alert(response.data.message); 
     }
     }
     catch (error) {
       console.error(error);
-      setErrorMessage('An error occurred during registration');
+      alert('An error occurred during registration');
      }
      
     }else{
