@@ -39,7 +39,7 @@ const handleOnSubmit = async (e) => {
       if (response.status === 201) {
         // Handle successful registration (e.g., redirect to login)
         console.log('User registered successfully!'); 
-        navigatologin();
+        navigate('/home');
         // Redirect or navigate to another page
     } else {
         alert(response.data); 
