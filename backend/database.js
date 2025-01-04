@@ -18,6 +18,13 @@ app.use(cors({
 
 app.use(express.static(__dirname + '/public/'))
 
+app.options("/register", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.sendStatus(204);
+});
+
 
 const Credentialschema = new mongoose.Schema({
     firstname: String,
