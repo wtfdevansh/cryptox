@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require('mongoose');
-const cors = require("cors");
+// const cors = require("cors");
 
 const DB = 'mongodb+srv://mrdivu7:rBxFqGkjvx7rtd8H@userdb.dpkwt.mongodb.net/?retryWrites=true&w=majority&appName=userDB'
 
@@ -10,13 +10,13 @@ mongoose.connect(DB);
 
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.json());
-app.use(
-  cors({
-  'origin': 'https://cryptox-frontend.vercel.app',
-  methods: ["GET","HEAD","PUT","PATCH","POST","DELETE"]
+// app.use(
+//   cors({
+//   'origin': 'https://cryptox-frontend.vercel.app',
+//   methods: ["GET","HEAD","PUT","PATCH","POST","DELETE"]
     
-  })
-);
+//   })
+// );
 
 app.options("/register", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
