@@ -38,7 +38,7 @@ const handleOnSubmit = async (e) => {
 
     
 
-    
+        props.setEmail(email);
         navigate('/home');
         // Redirect or navigate to another page
     
