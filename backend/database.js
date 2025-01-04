@@ -11,7 +11,10 @@ mongoose.connect(DB);
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.json());
 app.use(cors({ 
-  origin: 'https://cryptox-frontend.vercel.app' 
+  origin: 'https://cryptox-frontend.vercel.app',
+  methods: ['GET', 'POST' , 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedOrigins: ['https://cryptox-frontend.vercel.app'], 
 }));
 
 app.use((req, res, next) => {
