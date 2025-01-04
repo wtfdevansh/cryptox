@@ -38,6 +38,7 @@ const handleOnSubmit = async (e) => {
             'Content-Type': 'application/json',
             
         },
+        mode: 'no-cors'
       
     })
  
