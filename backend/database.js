@@ -14,7 +14,8 @@ app.use(cors({
   origin: 'https://cryptox-frontend.vercel.app',
   methods: ['GET', 'POST' , 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  allowedOrigins: ['https://cryptox-frontend.vercel.app'], 
+  allowedOrigins: ['https://cryptox-frontend.vercel.app'],
+  preflightContinue: false 
 }));
 
 app.use((req, res, next) => {
