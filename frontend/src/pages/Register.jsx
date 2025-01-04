@@ -34,7 +34,7 @@ const handleOnSubmit = async (e) => {
         email: email,
         password: password,
         funds: funds
-      })
+      }, {mode: 'no-cors'});
 
       if (response.status === 201) {
         // Handle successful registration (e.g., redirect to login)
