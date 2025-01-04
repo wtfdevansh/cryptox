@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require("cors");
 
-const DB = 'mongodb+srv://nathaditya446:RLsmWbntiW87SRfq@cluster0.zmwcs6m.mongodb.net/crypto?retryWrites=true&w=majority'
+const DB = 'mongodb+srv://mrdivu7:rBxFqGkjvx7rtd8H@userdb.dpkwt.mongodb.net/?retryWrites=true&w=majority&appName=userDB'
 
 mongoose.connect(DB);
 
