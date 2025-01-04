@@ -13,6 +13,7 @@ function Change(props){
       axios({ 
         method: 'post', 
         url: 'https://cryptox-backend.vercel.app/change', 
+         mode: 'no-cors',
         data: { email: emails,password: newpass} 
         }).then(response => {
            

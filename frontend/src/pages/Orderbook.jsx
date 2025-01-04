@@ -47,6 +47,7 @@ function Orderbook(props){
     axios({ 
       method: 'post', 
       url: 'https://cryptox-backend.vercel.app/wallet', 
+       mode: 'no-cors',
       data: { email: emails } 
       }).then(response => {
         console.log(response)

@@ -72,6 +72,7 @@ if(amount === '' && Time < 100 ){
     axios({ 
       method: 'post', 
       url: 'https://cryptox-backend.vercel.app/trade', 
+       mode: 'no-cors',
       data: { email: emails, item: name, direction: action, buyprice: buyat,money:amount,time: Time  } 
       }).then(response => {
          

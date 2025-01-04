@@ -40,7 +40,7 @@ function Trade(props){
     
 
     useEffect(() => {
-      fetch("https://cryptox-backend.vercel.app/crypto")
+      fetch("https://cryptox-backend.vercel.app/crypto" , {mode: 'no-cors'})
         .then((res) => res.json())
         .then((array) => {
             console.log(array);

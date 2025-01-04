@@ -15,6 +15,7 @@ function Login(props){
         'https://cryptox-backend.vercel.app/login', {
             
             method: "post",
+             mode: 'no-cors',
             body: JSON.stringify({email, password}),
             headers: {
                 'Content-Type': 'application/json'
