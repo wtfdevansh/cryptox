@@ -12,7 +12,7 @@ function Login(props){
         
         e.preventDefault();
         let result = await fetch(
-        'https://cryptox-nine.vercel.app/login', {
+        'https://cryptox-backend.vercel.app/login', {
             
             method: "post",
             body: JSON.stringify({email, password}),

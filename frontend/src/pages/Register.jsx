@@ -30,7 +30,7 @@ const handleOnSubmit = async (e) => {
   
   
     let result = await fetch(
-    'https://cryptox-nine.vercel.app/register', {
+    'https://cryptox-backend.vercel.app/register', {
     
         method: "post",
         body: JSON.stringify({firstname, lastname, email, password ,funds}),

@@ -31,7 +31,7 @@ function Wallet(props){
    
     axios({ 
       method: 'post', 
-      url: 'https://cryptox-nine.vercel.app/wallet', 
+      url: 'https://cryptox-backend.vercel.app/wallet', 
       data: { email: emails } 
       }).then(response => {
          const funds = response.data
