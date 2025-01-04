@@ -36,6 +36,8 @@ const handleOnSubmit = async (e) => {
         funds: funds
       });
 
+      alert(response.status);
+
       if(response.status === 201) {
         // Handle successful registration (e.g., redirect to login)
         console.log('User registered successfully!'); 
