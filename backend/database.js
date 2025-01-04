@@ -12,57 +12,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.json());
 
 
-app.options("/register", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.sendStatus(204);
-});
 
-app.options("/login", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.sendStatus(204);
-});
-
-
-app.options("/wallet", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.sendStatus(204);
-});
-
-
-app.options("/trade", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.sendStatus(204);
-});
-
-app.options("/change", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.sendStatus(204);
-});
-
-
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  next();
-})
-
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  next();
-})
 app.use(express.static(__dirname + '/public/'))
 
 
@@ -95,26 +45,41 @@ const Credentialschema = new mongoose.Schema({
 const User = mongoose.model("User", Credentialschema);
 User.createIndexes();
 
-app.post("/register", async (req, resp) => {
-   
-      try {
-      console.log(req.body)
-       const user = new User(req.body);
-       let result =  await user.save();
+app.post("/register", async (req, res) => {
 
-  
-        result = result.toObject();
-    
-        if (result) {
-            resp.send(req.body);
-            console.log(result);
-        } else {
-            console.log("User already register");
+ try{
+  const{firstname,lastname,email,password,funds} = req.body;
+
+  const existingUser = await User.findOne( { email } );
+        if (existingUser) {
+            return res.status(400).json({ message: 'Username or email already exists' });
         }
- 
-    } catch (e) {
-        resp.send("Something Went Wrong");
-    }
+
+        // // Hash password
+        // const saltRounds = 10; // Adjust salt rounds as needed
+        // const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+        // Create new user
+        const newUser = new User({ 
+            firstname,
+            lastname,
+            email,
+            password,
+            funds
+        });
+        await newUser.save();
+
+        res.status(201).json({ message: 'User registered successfully' }); 
+
+
+ }catch(e){
+       console.error(error);
+        res.status(500).json({ message: 'Server error' });
+ }
+  
+
+       
+      
 });
 
 app.post("/login", async (req, resp) => {

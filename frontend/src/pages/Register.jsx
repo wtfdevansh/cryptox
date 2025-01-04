@@ -3,6 +3,7 @@ import Login from "./Login";
 import {Routes, Route, useNavigate} from 'react-router-dom'
 import Home from "./Home";
 import axios from 'axios'
+import { GiMetalGolemHead } from "react-icons/gi";
 
 
 function Register(props){
@@ -24,42 +25,33 @@ const navigatologin = () => {
 const handleOnSubmit = async (e) => {
    e.preventDefault();
     if(invitationCode === "abc@123"){
-     
-     
- 
-  
-  
-    let result = await fetch(
-    'https://cryptox-backend.vercel.app/register', {
-    
-        method: "post",
-        body: JSON.stringify({firstname, lastname, email, password ,funds}),
-        headers: {
-            'Content-Type': 'application/json',
-            
-        },
-        mode: 'no-cors'
-      
-    })
- 
-    
 
-    if (result) {
-        alert("Data saved succesfully");
-        setInvitation("");
-        setFirst("");
-        setLast("");
-        setEmail("");
-        setPassword("");
-        props.sendEmail(email)
-        navigate('/home');
-    }else{
-      alert("something went wrong")
+      try{
+
+      const response = axios.post('https://cryptox-backend.vercel.app/register', {
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        password: password,
+        funds: funds
+      })
+
+      if (response.status === 201) {
+        // Handle successful registration (e.g., redirect to login)
+        console.log('User registered successfully!'); 
+        // Redirect or navigate to another page
+    } else {
+        setErrorMessage(response.data.message); 
     }
-}else{
+    }
+    catch (error) {
+      console.error(error);
+      setErrorMessage('An error occurred during registration');
+     }
+     
+    }else{
     alert("invalid invitation code");
-}
-
+    }
 }
 
 
