@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.json());
 app.use(
   cors({
-  "origin": "*",
+  'origin': 'https://cryptox-frontend.vercel.app',
   methods: ["GET","HEAD","PUT","PATCH","POST","DELETE"]
     
   })
