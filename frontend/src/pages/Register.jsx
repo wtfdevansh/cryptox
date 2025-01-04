@@ -38,16 +38,11 @@ const handleOnSubmit = async (e) => {
 
     
 
-      if(response.ok) {
-        // Handle successful registration (e.g., redirect to login)
-        console.log('User registered successfully!'); 
+    
         navigate('/home');
         // Redirect or navigate to another page
-    }else {
-        alert(response.data); 
-    }
-    }
-    catch(error) {
+    
+    }catch(error) {
       console.error(error);
       alert('An error occurred during registration');
      }
