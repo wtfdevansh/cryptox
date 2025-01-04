@@ -14,6 +14,11 @@ app.use(cors({
   origin: 'http://localhost:3001' 
 }));
 
+app.use((req, res, next) => {
+  console.log('CORS headers:', res.getHeaders()); // Log the response headers
+  next();
+});
+
 
 
 app.use(express.static(__dirname + '/public/'))
